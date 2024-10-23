@@ -10,18 +10,18 @@ export const Search = () => {
     paramName: "query",
   });
 
-  const handleSearch = useDebouncedCallback((searched: string) => {
+  const handleFilter = useDebouncedCallback((searched: string) => {
     applyQueryParams(searched);
   }, 300);
 
   return (
     <Input
-      label="Search"
+      label="Filter"
       type="text"
-      name="search"
-      id="search"
+      name="filter"
+      id="filter"
       onChange={(e) => {
-        handleSearch(e.target.value);
+        handleFilter(e.target.value);
       }}
       defaultValue={query}
     />

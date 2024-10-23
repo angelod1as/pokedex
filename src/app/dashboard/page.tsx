@@ -2,7 +2,6 @@ import React, { Suspense } from "react";
 import { DashboardLogout } from "./dashboard-logout";
 import ListAll from "./pokemon-list/pokemon-list";
 import { Search } from "../components/search";
-import { AbilitiesFilter } from "../components/abilities-filter";
 
 type PageProps = {
   searchParams?: Promise<{
@@ -22,12 +21,6 @@ const Dashboard = async (props: PageProps) => {
     <div>
       <DashboardLogout />
       <Search />
-      <Suspense
-        key={type + currentPage + "abilities"}
-        fallback={<div>Loading...</div>}
-      >
-        <AbilitiesFilter type={type} />
-      </Suspense>
       <Suspense
         key={query + currentPage + "list"}
         fallback={<div>Loading...</div>}
