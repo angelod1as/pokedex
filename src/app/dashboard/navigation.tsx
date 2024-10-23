@@ -2,10 +2,10 @@ import Link from "next/link";
 
 const links = [
   { name: "Home", href: "/dashboard" },
-  {
-    name: "List All",
-    href: "/dashboard/list-all",
-  },
+  // {
+  //   name: "List All",
+  //   href: "/dashboard/list-all",
+  // },
 ];
 
 export default function Navigation() {
