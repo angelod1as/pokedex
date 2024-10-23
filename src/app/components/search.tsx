@@ -2,22 +2,16 @@
 
 import React from "react";
 import { Input } from "./Input";
-import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
+import { useApplyQueryParams } from "../hooks/use-apply-query-params";
 
 export const Search = () => {
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const { replace } = useRouter();
+  const { applyQueryParams, param: query } = useApplyQueryParams({
+    paramName: "query",
+  });
 
   const handleSearch = useDebouncedCallback((searched: string) => {
-    const params = new URLSearchParams(searchParams);
-    if (searched) {
-      params.set("query", searched);
-    } else {
-      params.delete("query");
-    }
-    replace(`${pathname}?${params.toString()}`);
+    applyQueryParams(searched);
   }, 300);
 
   return (
@@ -29,7 +23,7 @@ export const Search = () => {
       onChange={(e) => {
         handleSearch(e.target.value);
       }}
-      defaultValue={searchParams.get("query")?.toString()}
+      defaultValue={query}
     />
   );
 };

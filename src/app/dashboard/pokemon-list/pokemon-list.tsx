@@ -1,14 +1,19 @@
-import { db, PageProps } from "@/app/lib/db";
+import { db } from "@/app/lib/db";
 import React from "react";
 
-type PokemonListProps = PageProps;
+type PokemonListProps = {
+  query?: string;
+  type?: string;
+};
 
-export const PokemonList = async ({ query, currentPage }: PokemonListProps) => {
+export const PokemonList = async ({ query, type }: PokemonListProps) => {
   const pokemons = await db.getAllPokemons();
+  console.log(pokemons);
 
   const filteredPokemons = query
     ? pokemons.filter((item) => item.name.includes(query))
-    : pokemons;
+    : // .filter((item) => item.type.includes(type))
+      pokemons;
 
   return (
     <div>
