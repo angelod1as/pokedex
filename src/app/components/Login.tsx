@@ -6,15 +6,13 @@ import { Input } from "./Input";
 import { Button } from "./Button";
 import { FormError } from "./FormError";
 import { db } from "../lib/db";
+import { checkLogin } from "../lib/checkLogin";
 
 export const Login = () => {
   const [error, setError] = useState<string>("");
 
   useEffect(() => {
-    // This leads to a "flash"
-    // If this was a proper database, we would do this server-side -- no flash!
-    const username = db.getUsername();
-    if (username) {
+    if (checkLogin()) {
       redirect("/dashboard");
     }
   }, []);
