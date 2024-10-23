@@ -1,13 +1,23 @@
 "use client";
 
 import { redirect } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Input } from "./Input";
 import { Button } from "./Button";
 import { FormError } from "./FormError";
+import { db } from "../lib/db";
 
 export const Login = () => {
-  const [error, setError] = useState<string>("Error!");
+  const [error, setError] = useState<string>("");
+
+  useEffect(() => {
+    // This leads to a "flash"
+    // If this was a proper database, we would do this server-side -- no flash!
+    const username = db.getUsername();
+    if (username) {
+      redirect("/dashboard");
+    }
+  }, []);
 
   const handleSubmit = (formData: FormData) => {
     const { email, password } = {
@@ -20,7 +30,7 @@ export const Login = () => {
       return;
     }
 
-    // TODO: SAVE TO LOCALSTORAGE USER DATA
+    db.login(email);
     redirect("/dashboard");
   };
 
