@@ -4,8 +4,8 @@ import { DashboardLogout } from "./dashboardLogout";
 const Dashboard = () => {
   return (
     <div>
-      <DashboardLogout></DashboardLogout>
-      Dashboard
+      <DashboardLogout />
+      Dash Home
     </div>
   );
 };

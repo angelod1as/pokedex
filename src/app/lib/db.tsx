@@ -11,4 +11,15 @@ export const db = {
   getUsername: () => {
     return localStorage.getItem("username");
   },
+  getAllPokemons: async () => {
+    const data = await fetch(
+      "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0"
+    );
+    const pokemons: Pokemon[] = (await data.json()).results;
+    return pokemons;
+  },
+};
+
+export type Pokemon = {
+  name: string;
 };
