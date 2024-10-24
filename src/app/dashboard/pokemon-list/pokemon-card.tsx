@@ -14,14 +14,14 @@ export const PokemonCard = async ({
   const pokemon = await db.getSinglePokemonByUrl(listedPokemon.url);
   if (!pokemon) return null;
 
+  const image =
+    pokemon.sprites.official || pokemon.sprites.front_default || null;
+
   return (
     <Card>
-      <Image
-        src={pokemon.sprites.official}
-        alt={pokemon.name}
-        width={200}
-        height={200}
-      />
+      {image && (
+        <Image src={image} alt={pokemon.name} width={200} height={200} />
+      )}
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{pokemon.name}</div>
       </div>
