@@ -10,7 +10,7 @@
   --secondary: #f6e652;
   --button-primary: #f6bd20;
   --button-hover: #9c5200;
-  --button-disabled: rgba(51, 51, 51, 0.5);
+  --button-disabled: rgba(134, 134, 134, 0.5);
   --text-body: #333333;
   --text-heading: #f6bd20;
   --text-link: #fff6a4;
@@ -18,7 +18,7 @@
   --error: rgb(185, 28, 28);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #fff6a4;
     --background-secondary: #f6bd20;
@@ -27,14 +27,14 @@
     --secondary: #f6e652;
     --button-primary: #f6bd20;
     --button-hover: #9c5200;
-    --button-disabled: rgba(51, 51, 51, 0.5);
+    --button-disabled: rgba(134, 134, 134, 0.5);
     --text-body: #333333;
     --text-heading: #f6bd20;
     --text-link: #fff6a4;
     --divider: #41414a;
     --error: rgb(185, 28, 28);
   }
-}
+} */
 
 body {
   color: var(--text-body);
