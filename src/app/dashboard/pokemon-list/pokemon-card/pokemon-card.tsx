@@ -23,7 +23,7 @@ export const PokemonCard = async ({
         <Image src={image} alt={pokemon.name} width={200} height={200} />
       )}
       <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2">{pokemon.name}</div>
+        <h3 className="font-bold text-xl mb-2">{pokemon.name}</h3>
       </div>
       <div>
         {pokemon.types.map(({ type: { name } }) => (

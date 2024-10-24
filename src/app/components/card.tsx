@@ -11,7 +11,7 @@ export const Card = ({ children, className }: CardProps) => {
     <div
       className={clsx(
         className,
-        "max-w-sm rounded overflow-hidden shadow-md flex flex-col justify-center items-center p-12 bg-background-tertiary"
+        "rounded-2xl max-w-sm overflow-hidden shadow-md flex flex-col justify-center items-center p-12 bg-background-tertiary"
       )}
     >
       {children}

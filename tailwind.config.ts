@@ -22,6 +22,7 @@ const config: Config = {
         "text-link": "var(--text-link)",
         divider: "var(--divider)",
         error: "var(--error)",
+        skeleton: "var(--skeleton)",
       },
     },
   },

@@ -1,7 +1,8 @@
 import { db } from "@/app/lib/db";
 import React, { Suspense } from "react";
-import { PokemonCard } from "./pokemon-card";
+import { PokemonCard } from "./pokemon-card/pokemon-card";
 import { POKEMONS_PER_PAGE } from "@/app/lib/constants";
+import { PokemonCardSkeleton } from "./pokemon-card/skeleton";
 
 type PokemonListProps = {
   query?: string;
@@ -26,8 +27,9 @@ export const PokemonList = async ({ query, currentPage }: PokemonListProps) => {
 
   return (
     <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+      {filteredPokemons.length === 0 && <p>No pokemons found</p>}
       {limitedPokemons.map((item) => (
-        <Suspense key={item.name} fallback={<div>Loading...</div>}>
+        <Suspense key={item.name} fallback={<PokemonCardSkeleton />}>
           <PokemonCard pokemon={item} />
         </Suspense>
       ))}

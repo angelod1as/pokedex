@@ -2,6 +2,7 @@ import React, { ReactNode, Suspense } from "react";
 import { DashboardLogout } from "./dashboard-logout";
 import ListAll from "./pokemon-list/pokemon-list";
 import { Search } from "../components/search";
+import PokemonListSkeleton from "./pokemon-list/skeleton";
 
 export type PageProps = {
   searchParams?: Promise<{
@@ -25,7 +26,7 @@ const Dashboard = async (props: PageProps) => {
       </div>
       <Suspense
         key={query + currentPage + "list"}
-        fallback={<div>Loading...</div>}
+        fallback={<PokemonListSkeleton />}
       >
         <ListAll query={query} currentPage={currentPage} />
       </Suspense>

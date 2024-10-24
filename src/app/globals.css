@@ -16,6 +16,7 @@
   --text-link: #fff6a4;
   --divider: #41414a;
   --error: rgb(185, 28, 28);
+  --skeleton: #f6bd202b;
 }
 
 /* @media (prefers-color-scheme: dark) {
