@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { Logout } from "./Logout";
+import { PageNav } from "./page-nav";
 
 export const Footer = () => {
   return (
@@ -9,6 +10,7 @@ export const Footer = () => {
         <Link className="flex font-extrabold text-2xl" href="/">
           Pokédex!
         </Link>
+        <PageNav />
         <Logout />
       </div>
     </div>

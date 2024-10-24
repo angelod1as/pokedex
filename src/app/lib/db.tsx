@@ -29,7 +29,7 @@ export const db: Database = {
     return localStorage.getItem("username");
   },
   getAllPokemons: async () => {
-    const query = "";
+    const query = "?limit=100000&offset=0";
     const data = await fetch(`${API_URL}/pokemon${query}`);
 
     if (!data.ok) return { pokemons: [], total: 0, next: "", previous: "" };
