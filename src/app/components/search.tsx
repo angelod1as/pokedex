@@ -11,7 +11,7 @@ export const Search = () => {
   });
 
   const handleFilter = useDebouncedCallback((searched: string) => {
-    applyQueryParams(searched);
+    applyQueryParams(searched.toLowerCase().trim());
   }, 300);
 
   return (
@@ -20,6 +20,7 @@ export const Search = () => {
       type="text"
       name="filter"
       id="filter"
+      inline={true}
       onChange={(e) => {
         handleFilter(e.target.value);
       }}
