@@ -24,6 +24,7 @@ export const Login = () => {
       password: formData.get("password")?.toString(),
     };
 
+    // No complicated validation as it's just a mock
     if (!email || !password) {
       setError('"Email" and "Password" are required');
       return;
@@ -39,7 +40,7 @@ export const Login = () => {
         <div className="flex flex-col gap-4">
           <Input
             label="E-mail"
-            type="text"
+            type="email"
             id="email"
             name="email"
             placeholder="pikachu@pokecenter.com"
