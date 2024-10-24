@@ -1,12 +1,12 @@
 import clsx from "clsx";
-import React from "react";
+import React, { FC } from "react";
 
 type CardProps = {
   children: React.ReactNode;
   className?: string;
 };
 
-export const Card = ({ children, className }: CardProps) => {
+export const Card: FC<CardProps> = ({ children, className }) => {
   return (
     <div
       className={clsx(

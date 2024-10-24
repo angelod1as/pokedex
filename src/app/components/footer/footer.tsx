@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+import React, { Suspense } from "react";
 import { Logout } from "../logout/Logout";
 import { PageNav } from "../page-nav";
 import github from "./github.svg";
@@ -22,7 +22,9 @@ export const Footer = () => {
           </Button>
         </div>
         <div className="flex-1 flex-grow">
-          <PageNav />
+          <Suspense>
+            <PageNav />
+          </Suspense>
         </div>
         <div>
           <Logout />

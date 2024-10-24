@@ -3,13 +3,25 @@
 import React from "react";
 import { Input } from "./Input";
 import { useDebouncedCallback } from "use-debounce";
-import { useApplyQueryParams } from "../hooks/use-apply-query-params";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export const Search = () => {
-  const { applyQueryParams, param: query } = useApplyQueryParams({
-    paramName: "query",
-    remove: ["page"],
-  });
+  const paramName = "query";
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
+  const query = searchParams.get(paramName)?.toString();
+
+  const applyQueryParams = (searched: string) => {
+    const params = new URLSearchParams(searchParams);
+    params.delete("page");
+    if (searched) {
+      params.set(paramName, searched);
+    } else {
+      params.delete(paramName);
+    }
+    replace(`${pathname}?${params.toString()}`);
+  };
 
   const handleFilter = useDebouncedCallback((searched: string) => {
     applyQueryParams(searched.toLowerCase().trim());

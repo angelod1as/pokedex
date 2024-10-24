@@ -1,12 +1,12 @@
 import clsx from "clsx";
-import React from "react";
+import React, { FC } from "react";
 
 type TagProps = {
   label: string;
   skeleton?: boolean;
 };
 
-export const Tag = ({ label, skeleton }: TagProps) => {
+export const Tag: FC<TagProps> = ({ label, skeleton }) => {
   return (
     <span
       className={clsx(

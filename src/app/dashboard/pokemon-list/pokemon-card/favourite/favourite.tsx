@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import pokeball from "./pokeball.svg";
 import clsx from "clsx";
 
@@ -9,7 +9,7 @@ type FavouriteProps = {
   id: number;
 };
 
-export const Favourite = ({ id }: FavouriteProps) => {
+export const Favourite: FC<FavouriteProps> = ({ id }) => {
   const [favourite, setFavourite] = useState(false);
 
   useEffect(() => {

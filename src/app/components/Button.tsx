@@ -1,11 +1,11 @@
-import React, { ButtonHTMLAttributes } from "react";
+import React, { ButtonHTMLAttributes, FC } from "react";
 import clsx from "clsx";
 
 type ButtonProps = {
   naked?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const Button = ({ className, naked, ...props }: ButtonProps) => {
+export const Button: FC<ButtonProps> = ({ className, naked, ...props }) => {
   return (
     <button
       className={clsx(

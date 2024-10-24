@@ -1,5 +1,5 @@
 import { db } from "@/app/lib/db";
-import React, { Suspense } from "react";
+import React, { FC, Suspense } from "react";
 import { PokemonCard } from "./pokemon-card/pokemon-card";
 import { POKEMONS_PER_PAGE } from "@/app/lib/constants";
 import { PokemonCardSkeleton } from "./pokemon-card/skeleton";
@@ -9,7 +9,10 @@ type PokemonListProps = {
   currentPage?: number;
 };
 
-export const PokemonList = async ({ query, currentPage }: PokemonListProps) => {
+export const PokemonList: FC<PokemonListProps> = async ({
+  query,
+  currentPage,
+}) => {
   const { pokemons } = await db.getAllPokemons();
 
   const filteredPokemons = query

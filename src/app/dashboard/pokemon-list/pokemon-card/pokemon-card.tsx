@@ -2,16 +2,16 @@ import { Card } from "@/app/components/card";
 import { Tag } from "@/app/components/tag";
 import { db, ListedPokemon } from "@/app/lib/db";
 import Image from "next/image";
-import React from "react";
+import React, { FC } from "react";
 import { Favourite } from "./favourite/favourite";
 
 type PokemonCardProps = {
   pokemon: ListedPokemon;
 };
 
-export const PokemonCard = async ({
+export const PokemonCard: FC<PokemonCardProps> = async ({
   pokemon: listedPokemon,
-}: PokemonCardProps) => {
+}) => {
   const pokemon = await db.getSinglePokemonByUrl(listedPokemon.url);
   if (!pokemon) return null;
 

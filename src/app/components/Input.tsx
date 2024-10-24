@@ -1,12 +1,17 @@
 import clsx from "clsx";
-import React, { InputHTMLAttributes } from "react";
+import React, { FC, InputHTMLAttributes } from "react";
 
 type InputProps = {
   label: string;
   inline?: boolean;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-export const Input = ({ label, className, inline, ...props }: InputProps) => {
+export const Input: FC<InputProps> = ({
+  label,
+  className,
+  inline,
+  ...props
+}) => {
   return (
     <div className={clsx(inline ? "items-center" : "flex-col", "flex gap-1")}>
       <label htmlFor={props.name} className="font-bold ">
