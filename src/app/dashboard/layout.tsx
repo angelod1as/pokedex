@@ -1,11 +1,8 @@
 import React from "react";
 import { Footer } from "../components/footer";
+import { PageProps } from "./page";
 
-const Layout = ({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) => {
+const Layout = async ({ children }: PageProps) => {
   return (
     <div>
       {children}
