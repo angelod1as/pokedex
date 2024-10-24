@@ -13,7 +13,7 @@ export const Logout = () => {
   };
 
   return (
-    <Button onClick={handleLogout} naked={true}>
+    <Button onClick={handleLogout} naked>
       <Image src={logoutSvg} alt="Logout" width={30} height={30} />
     </Button>
   );

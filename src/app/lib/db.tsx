@@ -15,7 +15,6 @@ type Database = {
     previous: string;
   }>;
   getSinglePokemonByUrl: (url: string) => Promise<Pokemon | null>;
-  // getSinglePokemon: (pokemonName: string) => Promise<Pokemon | null>;
 };
 
 export const db: Database = {
@@ -30,7 +29,8 @@ export const db: Database = {
   },
   getAllPokemons: async () => {
     const query = "?limit=100000&offset=0";
-    const data = await fetch(`${API_URL}/pokemon${query}`);
+    const url = `${API_URL}/pokemon${query}`;
+    const data = await fetch(url);
 
     if (!data.ok) return { pokemons: [], total: 0, next: "", previous: "" };
 

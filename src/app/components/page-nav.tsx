@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { LAST_PAGE, POKEMONS_PER_PAGE, TOTAL_POKEMONS } from "../lib/constants";
+import { LAST_PAGE } from "../lib/constants";
 import { Button } from "./Button";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 
@@ -26,15 +26,15 @@ export const PageNav = () => {
   };
 
   return (
-    <div className="grid [grid-template-areas:'prev_curr_next']">
+    <div className="flex gap-2 justify-center items-center">
       <Button disabled={currentPage <= 1} onClick={removePage}>
-        prev
+        &lsaquo;
       </Button>
       <div>
         {currentPage}/{LAST_PAGE}
       </div>
       <Button disabled={currentPage >= LAST_PAGE} onClick={addPage}>
-        next
+        &rsaquo;
       </Button>
     </div>
   );

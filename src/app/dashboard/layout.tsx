@@ -1,5 +1,5 @@
 import React from "react";
-import { Footer } from "../components/footer";
+import { Footer } from "../components/footer/footer";
 import { PageProps } from "./page";
 
 const Layout = async ({ children }: PageProps) => {

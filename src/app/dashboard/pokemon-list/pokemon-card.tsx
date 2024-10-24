@@ -1,6 +1,6 @@
 import { Card } from "@/app/components/card";
 import { Tag } from "@/app/components/tag";
-import { db, ListedPokemon, Pokemon } from "@/app/lib/db";
+import { db, ListedPokemon } from "@/app/lib/db";
 import Image from "next/image";
 import React from "react";
 
