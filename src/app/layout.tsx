@@ -27,7 +27,6 @@ export default function RootLayout({
         <div className="flex-grow p-6 pb-20 md:overflow-y-auto md:p-12 md:pb-20 flex flex-col">
           {children}
         </div>
-        <Footer />
       </body>
     </html>
   );
