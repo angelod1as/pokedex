@@ -6,13 +6,14 @@ import { Input } from "./Input";
 import { Button } from "./Button";
 import { FormError } from "./FormError";
 import { db } from "../lib/db";
-import { checkLogin } from "../lib/checkLogin";
+import { isLoggedIn } from "../lib/isLoggedIn";
+import { Card } from "./card";
 
 export const Login = () => {
   const [error, setError] = useState<string>("");
 
   useEffect(() => {
-    if (checkLogin()) {
+    if (isLoggedIn()) {
       redirect("/dashboard");
     }
   }, []);
@@ -33,25 +34,27 @@ export const Login = () => {
   };
 
   return (
-    <form action={handleSubmit}>
-      <div className="">
-        <Input
-          label="E-mail"
-          type="text"
-          id="email"
-          name="email"
-          placeholder="Email"
-        ></Input>
-        <Input
-          label="Password"
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Password"
-        ></Input>
+    <Card className="max-w-sm w-full">
+      <form action={handleSubmit} className="flex flex-col gap-6 w-full">
+        <div className="flex flex-col gap-4">
+          <Input
+            label="E-mail"
+            type="text"
+            id="email"
+            name="email"
+            placeholder="pikachu@pokecenter.com"
+          />
+          <Input
+            label="Password"
+            type="password"
+            id="password"
+            name="password"
+            placeholder="pika123"
+          />
+        </div>
         <Button type="submit">Login</Button>
         {error && <FormError error={error} />}
-      </div>
-    </form>
+      </form>
+    </Card>
   );
 };

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Nunito } from "next/font/google";
-import Sidebar from "./dashboard/sidebar";
+import { Footer } from "./components/footer";
 
 const nunito = Nunito({
   subsets: ["latin"],
@@ -22,16 +22,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${nunito.className} antialiased flex flex-col justify-around min-h-screen text-white`}
+        className={`${nunito.className} antialiased flex flex-col justify-around min-h-screen`}
       >
-        <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
-          <div className="w-full flex-none md:w-64">
-            <Sidebar />
-          </div>
-          <div className="flex-grow p-6 md:overflow-y-auto md:p-12">
-            {children}
-          </div>
+        <div className="flex-grow p-6 pb-20 md:overflow-y-auto md:p-12 md:pb-20 flex flex-col">
+          {children}
         </div>
+        <Footer />
       </body>
     </html>
   );

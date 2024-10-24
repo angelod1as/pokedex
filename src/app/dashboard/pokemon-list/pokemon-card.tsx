@@ -1,3 +1,4 @@
+import { Card } from "@/app/components/card";
 import { Tag } from "@/app/components/tag";
 import { db, ListedPokemon, Pokemon } from "@/app/lib/db";
 import Image from "next/image";
@@ -14,7 +15,7 @@ export const PokemonCard = async ({
   if (!pokemon) return null;
 
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg flex flex-col justify-center items-center">
+    <Card>
       <Image
         src={pokemon.sprites.official}
         alt={pokemon.name}
@@ -29,6 +30,6 @@ export const PokemonCard = async ({
           <Tag key={name} label={name} />
         ))}
       </div>
-    </div>
+    </Card>
   );
 };

@@ -5,5 +5,5 @@ type FormProps = {
 };
 
 export const FormError = ({ error }: FormProps) => {
-  return <p className="">{error}</p>;
+  return <p className="text-center max-w-xs text-error font-bold">{error}</p>;
 };
