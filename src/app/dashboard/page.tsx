@@ -14,7 +14,6 @@ type PageProps = {
 const Dashboard = async (props: PageProps) => {
   const searchParams = await props.searchParams;
   const query = searchParams?.query || "";
-  const type = searchParams?.type || "";
   const currentPage = Number(searchParams?.page) || 1;
 
   return (
@@ -25,7 +24,7 @@ const Dashboard = async (props: PageProps) => {
         key={query + currentPage + "list"}
         fallback={<div>Loading...</div>}
       >
-        <ListAll query={query} type={type} />
+        <ListAll query={query} />
       </Suspense>
     </div>
   );
