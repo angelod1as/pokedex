@@ -21,7 +21,7 @@ const Dashboard: FC<PageProps> = async (props) => {
 
   return (
     <div className="flex flex-col items-center justify-center gap-6">
-      <h2 className="text-4xl font-black">Pokédex!</h2>
+      <h1 className="text-4xl font-black">Pokédex!</h1>
       <div className="max-w-sm w-full">
         <Suspense>
           <Search />

@@ -27,13 +27,13 @@ export const PageNav = () => {
 
   return (
     <div className="flex gap-2 justify-center items-center">
-      <Button disabled={currentPage <= 1} onClick={removePage}>
+      <Button disabled={currentPage <= 1} onClick={removePage} name="prev">
         &lsaquo;
       </Button>
       <div>
         {currentPage}/{LAST_PAGE}
       </div>
-      <Button disabled={currentPage >= LAST_PAGE} onClick={addPage}>
+      <Button disabled={currentPage >= LAST_PAGE} onClick={addPage} name="next">
         &rsaquo;
       </Button>
     </div>
