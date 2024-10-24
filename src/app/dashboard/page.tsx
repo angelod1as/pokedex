@@ -20,7 +20,7 @@ const Dashboard = async (props: PageProps) => {
 
   return (
     <div className="flex flex-col items-center justify-center gap-6">
-      <h2 className="text-4xl font-black">Select your fighter!</h2>
+      <h2 className="text-4xl font-black">Pokédex!</h2>
       <div className="max-w-sm w-full">
         <Search />
       </div>

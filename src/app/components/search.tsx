@@ -8,6 +8,7 @@ import { useApplyQueryParams } from "../hooks/use-apply-query-params";
 export const Search = () => {
   const { applyQueryParams, param: query } = useApplyQueryParams({
     paramName: "query",
+    remove: ["page"],
   });
 
   const handleFilter = useDebouncedCallback((searched: string) => {

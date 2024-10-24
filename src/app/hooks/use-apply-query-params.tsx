@@ -2,10 +2,12 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 type UseApplyQueryParamsProps = {
   paramName: string;
+  remove: Array<string>;
 };
 
 export const useApplyQueryParams = ({
   paramName,
+  remove,
 }: UseApplyQueryParamsProps) => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -19,6 +21,12 @@ export const useApplyQueryParams = ({
     } else {
       params.delete(paramName);
     }
+    if (remove?.length) {
+      remove.forEach((key) => {
+        params.delete(key);
+      });
+    }
+
     replace(`${pathname}?${params.toString()}`);
   };
 

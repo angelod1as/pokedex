@@ -27,7 +27,7 @@ export const PokemonList = async ({ query, currentPage }: PokemonListProps) => {
 
   return (
     <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-      {filteredPokemons.length === 0 && <p>No pokemons found</p>}
+      {limitedPokemons.length === 0 && <p>No pokemons found</p>}
       {limitedPokemons.map((item) => (
         <Suspense key={item.name} fallback={<PokemonCardSkeleton />}>
           <PokemonCard pokemon={item} />
