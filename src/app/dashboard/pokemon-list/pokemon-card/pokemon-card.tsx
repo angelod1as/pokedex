@@ -1,9 +1,9 @@
 import { Card } from "@/app/components/card";
 import { Tag } from "@/app/components/tag";
-import { db, ListedPokemon } from "@/app/lib/db";
 import Image from "next/image";
 import React, { FC } from "react";
 import { Favourite } from "./favourite/favourite";
+import { api, ListedPokemon } from "@/app/lib/api";
 
 type PokemonCardProps = {
   pokemon: ListedPokemon;
@@ -12,7 +12,7 @@ type PokemonCardProps = {
 export const PokemonCard: FC<PokemonCardProps> = async ({
   pokemon: listedPokemon,
 }) => {
-  const pokemon = await db.getSinglePokemonByUrl(listedPokemon.url);
+  const pokemon = await api.getSinglePokemonByUrl(listedPokemon.url);
   if (!pokemon) return null;
 
   const image =

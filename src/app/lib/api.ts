@@ -1,13 +1,6 @@
 const API_URL = "https://pokeapi.co/api/v2";
 
-// type LocalStorageData = {};
-
-// The DB in this app is... LocalStorage!
-
-type Database = {
-  login: (username: string) => void;
-  logout: () => void;
-  getUsername: () => string | null;
+type Api = {
   getAllPokemons: () => Promise<{
     pokemons: ListedPokemon[];
     total: number;
@@ -17,16 +10,7 @@ type Database = {
   getSinglePokemonByUrl: (url: string) => Promise<Pokemon | null>;
 };
 
-export const db: Database = {
-  login: (username: string) => {
-    localStorage.setItem("username", username);
-  },
-  logout: () => {
-    localStorage.setItem("username", "");
-  },
-  getUsername: () => {
-    return localStorage.getItem("username");
-  },
+export const api: Api = {
   getAllPokemons: async () => {
     const query = "?limit=100000&offset=0";
     const url = `${API_URL}/pokemon${query}`;
@@ -66,36 +50,24 @@ export const db: Database = {
 
     return filteredPokemon;
   },
-  // getSinglePokemon: async (pokemonName) => {
-  //   const data = await fetch(`${API_URL}/pokemon/${pokemonName}`);
-  //   if (!data.ok) return null;
-  //   const pokemon = await data.json();
-
-  //   // sending less data to the client
-  //   const filteredPokemon: Pokemon = {
-  //     abilities: pokemon.abilities,
-  //     base_experience: pokemon.base_experience,
-  //     height: pokemon.height,
-  //     id: pokemon.id,
-  //     name: pokemon.name,
-  //     stats: pokemon.stats,
-  //     types: pokemon.types,
-  //     weight: pokemon.weight,
-  //     sprites: {
-  //       front_default: pokemon.sprites.front_default,
-  //     },
-  //   };
-
-  //   return filteredPokemon;
-  // },
 };
 
-type namePair = {
+type APIPokemon = Pokemon & {
+  sprites: {
+    other: {
+      "official-artwork": {
+        front_default: string;
+      };
+    };
+  };
+};
+
+export type ListedPokemon = {
   name: string;
   url: string;
 };
 
-export type ListedPokemon = {
+type namePair = {
   name: string;
   url: string;
 };
@@ -124,14 +96,4 @@ export type Pokemon = {
     slot: number;
     type: namePair;
   }>;
-};
-
-type APIPokemon = Pokemon & {
-  sprites: {
-    other: {
-      "official-artwork": {
-        front_default: string;
-      };
-    };
-  };
 };
