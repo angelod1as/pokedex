@@ -3,6 +3,7 @@ import { Tag } from "@/app/components/tag";
 import { db, ListedPokemon } from "@/app/lib/db";
 import Image from "next/image";
 import React from "react";
+import { Favourite } from "./favourite/favourite";
 
 type PokemonCardProps = {
   pokemon: ListedPokemon;
@@ -19,6 +20,9 @@ export const PokemonCard = async ({
 
   return (
     <Card>
+      <div className="absolute top-2 right-3">
+        <Favourite id={pokemon.id} />
+      </div>
       {image && (
         <Image src={image} alt={pokemon.name} width={200} height={200} />
       )}
